@@ -37,6 +37,39 @@
 //	assigned-clock-rates = <700000000>;
 //};
 
+
+/{
+    gpio2pa2:gpio2pa2 {
+        compatible = "regulator-fixed";
+        pinctrl-names = "default";
+        pinctrl-0 = <&gpio2_pa2>;
+        regulator-name = "gpio2_pa2";
+        regulator-always-on;
+    };
+    gpio2pa3:gpio2pa3 {
+        compatible = "regulator-fixed";
+        pinctrl-names = "default";
+        pinctrl-0 = <&gpio2_pa3>;
+        regulator-name = "gpio2_pa3";
+        regulator-always-on;
+    };
+};
+
+
+/**********GPIO**********/
+&pinctrl {
+    gpio2-pa2 {
+        gpio2_pa2:gpio2-pa2 {
+            rockchip,pins = <2 RK_PA2 RK_FUNC_GPIO &pcfg_pull_up>;
+        };
+    };
+    gpio2-pa3 {
+        gpio2_pa3:gpio2-pa3 {
+            rockchip,pins = <2 RK_PA3 RK_FUNC_GPIO &pcfg_pull_up>;
+        };
+    };
+};
+
 /**********FLASH**********/
 &sfc {
 	status = "okay";
@@ -95,7 +128,7 @@
 
 /**********SPI**********/
 &spi0 {
-	status = "disabled";
+	status = "okay";
 	spidev@0 {
 		spi-max-frequency = <50000000>;
 	};
