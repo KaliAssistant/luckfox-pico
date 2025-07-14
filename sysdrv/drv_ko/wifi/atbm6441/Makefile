@@ -136,7 +136,7 @@ else
 #KERDIR:=/wifi_prj/wuping/project/linux/iTop4412_Kernel_3.0/
 #CROSS_COMPILE:=/usr/local/arm/arm-2009q3/bin/arm-none-linux-gnueabi-
 KERDIR:=/home/xy/otter_ipc_linux/sysdrv/source/kernel/
-CROSS_COMPILE:=arm-rockchip830-linux-uclibcgnueabihf-
+CROSS_COMPILE:=arm-rockchip830-linux-gnueabihf-
 EXTRA_CFLAGS += -Wno-declaration-after-statement
 endif
 export

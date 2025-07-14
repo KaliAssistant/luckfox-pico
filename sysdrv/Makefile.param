@@ -58,7 +58,7 @@ endif
 SYSDRV_OPTS := -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64
 KERNEL_DIR := $(CURRENT_DIR)/source/kernel
 
-ifeq ($(SYSDRV_CROSS),arm-rockchip830-linux-uclibcgnueabihf)
+ifeq ($(SYSDRV_CROSS),arm-rockchip830-linux-gnueabihf)
 SYSDRV_LIB_TYPE := uclibc
 ARCH := arm
 SYSDRV_CROSS_CFLAGS += -march=armv7-a -mfpu=neon -mfloat-abi=hard
