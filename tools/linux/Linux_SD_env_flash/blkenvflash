@@ -50,7 +50,7 @@ print(f"writing to {dev}")
 # -- a few helpers to en/decode nice numbers
 def true_size(s):
    u = { 'B': 1, 'K': 1024, 'M': 1024*1024, 'G': 1024*1024*1024 }
-   if m := re.search('(\d+)([BKMG])',s):
+   if m := re.search(r'(\d+)([BKMG])',s):
       return int(m.group(1)) * u[m.group(2)]
    return 0
 
@@ -71,16 +71,16 @@ atexit.register(cleanup)
 with open(".env.txt") as fh:
    env2 = [ ]
    for l in fh.readlines():
-      if m := re.search('(blkdevparts|sd_parts)=(\w+)',l):
+      if m := re.search(r'(blkdevparts|sd_parts)=(\w+)',l):
          _type = m.group(1)
          _dev = m.group(2)
-         l = re.sub('blkdevparts=\w+:','',l)
+         l = re.sub(r'blkdevparts=\w+:','',l)
          p = l.split(',')
          c_off = 0
          if step=='sdcard' and _dev == 'mmcblk1': 
             for e in p:
                #print(e)
-               if (m := re.search('(\d+[KMG])@(\d+[KMG])\((\w+)\)',e)) or (m := re.search('(\d+[KMG])\((\w+)\)',e)):
+               if (m := re.search(r'(\d+[KMG])@(\d+[KMG])\((\w+)\)',e)) or (m := re.search(r'(\d+[KMG])\((\w+)\)',e)):
                   if len(m.groups())==3:
                      size = true_size(m.group(1))
                      off = true_size(m.group(2))

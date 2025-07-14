@@ -1,0 +1,7 @@
+/* Generated automatically. */
+static const char configuration_arguments[] = "/home/.build/arm-rockchip830-linux-gnueabihf/src/gcc/configure --build=x86_64-build_pc-linux-gnu --host=x86_64-build_pc-linux-gnu --target=arm-rockchip830-linux-gnueabihf --prefix=/home/x-tool/arm-rockchip830-linux-gnueabihf --exec_prefix=/home/x-tool/arm-rockchip830-linux-gnueabihf --with-sysroot=/home/x-tool/arm-rockchip830-linux-gnueabihf/arm-rockchip830-linux-gnueabihf/sysroot --enable-languages=c,c++ --with-arch=armv7-a --with-fpu=neon-vfpv4 --with-float=hard --with-pkgversion='crosstool-NG UNKNOWN' --enable-__cxa_atexit --disable-libmudflap --disable-libgomp --disable-libquadmath --disable-libquadmath-support --disable-libsanitizer --disable-libmpx --with-gmp=/home/.build/arm-rockchip830-linux-gnueabihf/buildtools --with-mpfr=/home/.build/arm-rockchip830-linux-gnueabihf/buildtools --with-mpc=/home/.build/arm-rockchip830-linux-gnueabihf/buildtools --with-isl=/home/.build/arm-rockchip830-linux-gnueabihf/buildtools --enable-lto --enable-threads=posix --enable-target-optspace --enable-plugin --with-libintl-prefix=/home/.build/arm-rockchip830-linux-gnueabihf/buildtools --disable-multilib --with-local-prefix=/home/x-tool/arm-rockchip830-linux-gnueabihf/arm-rockchip830-linux-gnueabihf/sysroot --enable-long-long";
+static const char thread_model[] = "posix";
+
+static const struct {
+  const char *name, *value;
+} configure_default_options[] = { { "cpu", "arm10e" }, { "arch", "armv7-a" }, { "float", "hard" }, { "fpu", "neon-vfpv4" }, { "tls", "gnu" } };

@@ -1,6 +1,8 @@
 #!/bin/sh
 
-TARGET_IP="172.32.0.93"
+. /etc/usbnet
+
+TARGET_IP="$USB0_IP"
 
 USB_KEYWORD="android_work: sent uevent USB_STATE="
 USB_MODE_PATH="/proc/device-tree/usbdrd/usb@ffb00000/dr_mode"
@@ -17,7 +19,7 @@ usb0_config() {
 		while [[ "$current_ip" != "$TARGET_IP" && $retries -lt $MAX_RETRIES ]]; do
 			sleep .5
 			echo "luckfox : set usb0 ip"
-			ifconfig usb0 "$TARGET_IP"
+			ifconfig usb0 "$TARGET_IP" netmask "$USB0_MASK"
 			current_ip=$(ifconfig usb0 | grep -o 'inet addr:[^ ]*' | awk -F ':' '{print $2}')
 			echo $current_ip
 			retries=$((retries + 1))

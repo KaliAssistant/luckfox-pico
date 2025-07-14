@@ -34,7 +34,7 @@ GLOBAL_PARTITIONS=""
 GLOBAL_SDK_VERSION=""
 WIFI_NEW_CONF=${SDK_APP_DIR}/wifi_app/wpa_supplicant_new.conf
 WIFI_CONF=${SDK_APP_DIR}/wifi_app/wpa_supplicant.conf
-BUILDROOT_PATH=${SDK_SYSDRV_DIR}/source/buildroot/buildroot-2023.02.6
+BUILDROOT_PATH=${SDK_SYSDRV_DIR}/source/buildroot/buildroot-foxjack-2025.05
 BUILDROOT_CONFIG_FILE=${BUILDROOT_PATH}/.config
 SDK_CONFIG_DIR=${SDK_ROOT_DIR}/config
 DTS_CONFIG=${SDK_CONFIG_DIR}/dts_config
@@ -81,6 +81,8 @@ OTA_SCRIPT_PATH=$RK_PROJECT_PATH_RAMDISK
 ENV_CFG_FILE=$RK_PROJECT_OUTPUT_IMAGE/.env.txt
 ENV_SIZE=""
 ENV_OFFSET=""
+
+
 
 ################################################################################
 # Public Configure
@@ -1475,7 +1477,7 @@ esac
 EOF
 
 	chmod a+x $RK_PROJECT_FILE_OEM_SCRIPT
-	cp -f $RK_PROJECT_FILE_OEM_SCRIPT $RK_PROJECT_PACKAGE_ROOTFS_DIR/etc/init.d
+#	cp -f $RK_PROJECT_FILE_OEM_SCRIPT $RK_PROJECT_PACKAGE_ROOTFS_DIR/etc/init.d
 }
 
 function __PACKAGE_USERDATA() {
@@ -2503,12 +2505,12 @@ function build_firmware() {
 		cp -fv $PROJECT_TOP_DIR/scripts/$RK_MISC ${RK_PROJECT_OUTPUT_IMAGE}/misc.img
 	fi
 
-	__PACKAGE_ROOTFS
-	__PACKAGE_OEM
+  __PACKAGE_ROOTFS
+  __PACKAGE_OEM
 
 	__BUILD_ENABLE_COREDUMP_SCRIPT
 
-	__RUN_PRE_BUILD_OEM_SCRIPT
+  __RUN_PRE_BUILD_OEM_SCRIPT
 
 	if [ "$RK_BUILD_APP_TO_OEM_PARTITION" = "y" ]; then
 		rm -rf $RK_PROJECT_PACKAGE_ROOTFS_DIR/oem/*

@@ -1,0 +1,1 @@
+../../arm-rockchip830-linux-gnueabihf/sysroot/lib/libstdc++.so.6.0.34-gdb.py
